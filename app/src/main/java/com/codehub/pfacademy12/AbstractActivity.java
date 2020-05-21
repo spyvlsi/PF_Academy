@@ -1,7 +1,12 @@
 package com.codehub.pfacademy12;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.util.EventLog;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -20,6 +25,7 @@ public abstract class AbstractActivity extends AppCompatActivity {
 
     // App lifecycle primary stages
 
+    private Button btn;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,8 +40,44 @@ public abstract class AbstractActivity extends AppCompatActivity {
 //        TextView textView = findViewById(R.id.mainTxt);
 //        textView.setText("Spyros");
 //        textView.setBackgroundResource(R.color.colorPrimary);
+
+        btn = findViewById(R.id.mainBtn);
+
+        btn.setOnTouchListener(new View.OnTouchListener(){
+            @Override
+            public boolean onTouch(View v, MotionEvent event){
+                return false;
+            }
+        });
+//        btn.isFocused();
+//        btn.isSelected();
+//        btn.isEnabled();
+//        btn.isAttachedToWindow();
+//        btn.isClickable();
+
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoNextScreen();
+                btn.setEnabled(false);
+            }
+        });
+
+        btn.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+//                showMessage();
+                return false;
+            }
+        });
     }
 
+    private void gotoNextScreen(){
+        Intent intent = new Intent(AbstractActivity.this,secondActivity.class);
+        startActivity(intent);
+
+    }
 
 
     @Override
@@ -46,6 +88,7 @@ public abstract class AbstractActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        btn.setEnabled(true);
     }
 
     @Override

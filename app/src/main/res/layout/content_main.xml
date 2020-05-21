@@ -29,7 +29,7 @@
     <Button
         android:id="@+id/mainBtn3"
         android:text="3"
-        android:background="@android:color/holo_blue_light"
+        android:backgroundTint="@android:color/holo_blue_dark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintRight_toRightOf="parent"/>
@@ -37,7 +37,7 @@
     <Button
         android:id="@+id/mainBtn2"
         android:text="2"
-        android:background="@android:color/holo_green_light"
+        android:backgroundTint="@android:color/holo_green_dark"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_width="wrap_content"
@@ -46,7 +46,7 @@
     <Button
         android:id="@+id/mainBtn1"
         android:text="1"
-        android:background="@android:color/holo_red_light"
+        android:backgroundTint="@android:color/holo_red_dark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
