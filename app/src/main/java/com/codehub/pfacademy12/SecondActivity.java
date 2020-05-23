@@ -1,7 +1,6 @@
 package com.codehub.pfacademy12;
 
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,9 +9,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class secondActivity extends AppCompatActivity {
+public class SecondActivity extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
+//    private RecyclerView recyclerView;
+    private CustomAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,13 +36,19 @@ public class secondActivity extends AppCompatActivity {
         array.add("list");
         array.add("test");
 
-        recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setAdapter(new RecAdapter(array, new ItemClickListener() {
-            @Override
-            public void onItemClick(Object item) {
-                // object item
-            }
-        }));
-
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+//        recyclerView.setAdapter(new RecAdapter(array, new ItemClickListener() {
+//            @Override
+//            public void onItemClick(Object item) {
+//                // object item
+//            }
+//        }));
+      adapter = new CustomAdapter(new ItemClickListener() {
+          @Override
+          public void onItemClick(Object item) {
+          }
+      });
+      recyclerView.setAdapter(adapter);
+      adapter.submitList(array);
     }
 }

@@ -8,12 +8,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 
-public class customAdapter extends ListAdapter<Object,RecViewHolder> {
+public class CustomAdapter extends ListAdapter<Object,RecViewHolder> {
 
     private ItemClickListener listener;
 
-    protected customAdapter(@NonNull DiffUtil.ItemCallback<Object> diffCallback) {
-        super(diffCallback);
+    protected CustomAdapter(@NonNull ItemClickListener diffCallback) {
+        super(new DiffItemCallbackClass<Object>());
     }
 
     @NonNull
@@ -25,7 +25,7 @@ public class customAdapter extends ListAdapter<Object,RecViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull RecViewHolder holder, int position) {
- //       holder.
+        holder.present(getItem(position));
 
     }
 }
